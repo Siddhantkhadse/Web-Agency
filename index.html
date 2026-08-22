@@ -434,22 +434,22 @@ const withPerformance = (Component) =&gt; {
 </div>
 </div>
 <div class="glass-panel p-8 rounded-xl border border-surface-variant">
-<form class="space-y-6">
+<form class="space-y-6" onsubmit="event.preventDefault(); const n = document.getElementById('name').value; const e = document.getElementById('email').value; const d = document.getElementById('details').value; window.location.href = 'mailto:siddhant@rendercept.com?subject=Project Inquiry: ' + encodeURIComponent(n) + '&amp;body=' + encodeURIComponent('Name: ' + n + '\nEmail: ' + e + '\n\nProject Details:\n' + d);">
 <div>
-<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="name">Identity</label>
+<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="name">Full Name</label>
 <input class="w-full bg-surface-container border border-surface-variant rounded-DEFAULT px-4 py-3 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/50" id="name" placeholder="John Doe" type="text"/>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="email">Transmission Vector (Email)</label>
+<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="email">Work Email</label>
 <input class="w-full bg-surface-container border border-surface-variant rounded-DEFAULT px-4 py-3 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/50" id="email" placeholder="john@company.com" type="email"/>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="details">Project Parameters</label>
+<label class="block font-label-sm text-label-sm text-text-dim mb-2 uppercase tracking-wider" for="details">Project Details</label>
 <textarea class="w-full bg-surface-container border border-surface-variant rounded-DEFAULT px-4 py-3 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/50 resize-none" id="details" placeholder="Describe stack requirements, goals, and bottlenecks..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary text-black px-6 py-4 rounded-DEFAULT font-label-md text-label-md font-bold hover:bg-primary-fixed-dim transition-colors duration-200 active:scale-95 flex items-center justify-center gap-2 group" type="submit">
-                            Initialize Deployment
-                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">rocket_launch</span>
+                            Request a Proposal
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </form>
 </div>
