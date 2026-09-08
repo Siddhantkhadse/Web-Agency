@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact & Project Consultation - Rendercept</title>
+    <meta name="description" content="Initiate project consultation with Rendercept. Receive guaranteed under 24-hour response SLAs, fixed-scope proposals, and direct engineering access." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS with CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#4cd7f6",
+                        "text-dim": "#94A3B8",
+                        "on-primary-container": "#00424f",
+                        "inverse-surface": "#dae2fd",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-primary-fixed": "#001f26",
+                        "tertiary": "#ffb873",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#5b3200",
+                        "border-accent": "rgba(34, 211, 238, 0.2)",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-secondary-fixed": "#07006c",
+                        "surface-container-high": "#222a3d",
+                        "surface-bright": "#31394d",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdcbf",
+                        "secondary-container": "#3131c0",
+                        "outline-variant": "#3d494c",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb873",
+                        "primary": "#4cd7f6",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "tertiary-container": "#e89337",
+                        "on-error": "#690005",
+                        "secondary": "#c0c1ff",
+                        "on-tertiary": "#4b2800",
+                        "primary-fixed": "#acedff",
+                        "on-primary": "#003640",
+                        "on-secondary": "#1000a9",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-surface-variant": "#bcc9cd",
+                        "on-surface": "#dae2fd",
+                        "glass-bg": "rgba(15, 23, 42, 0.7)",
+                        "surface-container-lowest": "#060e20",
+                        "background": "#0b1326",
+                        "outline": "#869397",
+                        "on-primary-fixed-variant": "#004e5c",
+                        "inverse-primary": "#00687a",
+                        "primary-container": "#06b6d4",
+                        "surface-tint": "#4cd7f6",
+                        "surface": "#1E293B",
+                        "on-secondary-container": "#b0b2ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "display": ["DM Sans", "sans-serif"],
+                        "headline-lg": ["DM Sans", "sans-serif"],
+                        "headline-md": ["DM Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "label-sm": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                background: rgba(15, 23, 42, 0.65);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: 1px solid rgba(255, 255, 255, 0.03);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            .glow-active {
+                box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+            }
+            .glow-hover {
+                transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            }
+            .glow-hover:hover {
+                box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+                border-color: rgba(76, 215, 246, 0.4);
+                transform: translateY(-2px);
+            }
+            .cyan-line-top {
+                position: relative;
+            }
+            .cyan-line-top::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #4cd7f6;
+            }
+            .ambient-flare {
+                position: absolute;
+                border-radius: 9999px;
+                filter: blur(100px);
+                pointer-events: none;
+                z-index: 0;
+            }
+            .nav-link-active {
+                color: #4cd7f6;
+                position: relative;
+            }
+            .nav-link-active::after {
+                content: '';
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #4cd7f6;
+                box-shadow: 0 0 8px #4cd7f6;
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden pt-20 selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col justify-between">
+    
+    <!-- Top Global Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-border-accent shadow-sm" id="global-nav">
+        <div class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto h-20">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Rendercept Home">
+                <img alt="Rendercept Logo" class="h-8 w-8 object-contain rounded-md bg-surface-container border border-surface-variant group-hover:border-primary/50 transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                <span class="font-headline-md text-2xl font-bold text-primary tracking-tight group-hover:text-primary-fixed transition-colors">Rendercept</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 font-body-md text-sm lg:text-base">
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="work.html">Work</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="about.html">About</a>
+                <a class="nav-link-active font-medium transition-colors duration-200" href="contact.html">Contact</a>
+            </div>
+
+            <!-- Header Action CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a class="bg-primary text-black px-5 py-2.5 rounded font-label-md text-xs tracking-wider uppercase hover:bg-primary-fixed-dim transition-all duration-200 font-bold active:scale-95 shadow-[0_0_15px_rgba(76,215,246,0.25)] hover:shadow-[0_0_20px_rgba(76,215,246,0.45)] inline-flex items-center gap-1.5" href="contact.html">
+                    <span>Start Project</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none focus:ring-1 focus:ring-primary rounded" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-drawer" class="hidden md:hidden bg-surface-dim/95 backdrop-blur-xl border-b border-surface-variant px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="index.html">Home</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="work.html">Work</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="about.html">About</a>
+                <a class="text-primary font-semibold text-lg py-2 border-l-2 border-primary pl-3 bg-primary/5 rounded-r" href="contact.html">Contact</a>
+                <div class="pt-4 border-t border-surface-variant flex flex-col gap-3">
+                    <a class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-colors" href="contact.html">
+                        Start a Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Contact Split Layout Section -->
+        <section class="py-20 lg:py-24 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto relative">
+            <div class="ambient-flare top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10"></div>
+            <div class="ambient-flare bottom-10 right-1/4 w-[500px] h-[500px] bg-secondary/15"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                
+                <!-- Left Column: Details, SLA, & Reassurance -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/90 border border-border-accent mb-6">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            <span class="font-label-sm text-xs text-primary uppercase tracking-wider font-semibold">Initiate Sequence</span>
+                        </div>
+                        <h1 class="font-display text-4xl sm:text-5xl font-bold text-on-surface mb-4 leading-tight">
+                            Let's Build Something <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Fast</span>.
+                        </h1>
+                        <p class="font-body-lg text-base sm:text-lg text-text-dim leading-relaxed">
+                            Have an upcoming website redesign, a slow web app needing speed remediation, or a new clinic requiring top-tier local conversions? Tell us about your goals.
+                        </p>
+                    </div>
+
+                    <!-- Direct Contact & SLA Cards -->
+                    <div class="space-y-4">
+                        <div class="glass-panel p-5 rounded-xl border border-surface-variant flex items-start gap-4 glow-hover">
+                            <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant text-primary shrink-0">
+                                <span class="material-symbols-outlined text-xl">schedule</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-sm font-bold text-on-surface">&lt; 24-Hour Response SLA</h4>
+                                <p class="text-xs text-text-dim mt-0.5">Every inquiry is reviewed directly by a principal web engineer, not a sales representative.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-xl border border-surface-variant flex items-start gap-4 glow-hover">
+                            <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant text-primary shrink-0">
+                                <span class="material-symbols-outlined text-xl">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-sm font-bold text-on-surface">Direct Email</h4>
+                                <a href="mailto:siddhant@rendercept.com" class="text-xs font-label-md text-primary hover:underline mt-0.5 inline-block">siddhant@rendercept.com</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-xl border border-surface-variant flex items-start gap-4 glow-hover">
+                            <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant text-primary shrink-0">
+                                <span class="material-symbols-outlined text-xl">public</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-sm font-bold text-on-surface">Distributed Engineering</h4>
+                                <p class="text-xs text-text-dim mt-0.5">Remote-first studio serving clients worldwide across US, European, and APAC timezones.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust & Reassurance Badges -->
+                    <div class="p-6 bg-surface-container/60 rounded-xl border border-surface-variant space-y-3">
+                        <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider">Client Reassurance</h5>
+                        <ul class="space-y-2 text-xs font-body-md text-text-dim">
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                <span>Strict Mutual NDA upon request before code review</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                <span>100% upfront fixed-scope pricing (no billing creep)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                <span>Guaranteed 95+ Core Web Vitals mobile score</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Enhanced Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel cyan-line-top p-8 sm:p-10 rounded-2xl border border-surface-variant glow-active relative">
+                        <div class="mb-8">
+                            <h2 class="font-headline-md text-2xl font-bold text-on-surface">Project Inquiry Form</h2>
+                            <p class="font-body-md text-xs sm:text-sm text-text-dim mt-1">Fill out the technical brief below and we will prepare a scoping blueprint.</p>
+                        </div>
+
+                        <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                            
+                            <!-- Name & Email Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="name">
+                                        Full Name <span class="text-primary">*</span>
+                                    </label>
+                                    <input required class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/40" id="name" placeholder="Alex Rivers" type="text" />
+                                </div>
+                                <div>
+                                    <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="email">
+                                        Work Email <span class="text-primary">*</span>
+                                    </label>
+                                    <input required class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/40" id="email" placeholder="alex@company.com" type="email" />
+                                </div>
+                            </div>
+
+                            <!-- Website URL -->
+                            <div>
+                                <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="website">
+                                    Current Website URL <span class="text-text-dim/50 font-normal">(if existing)</span>
+                                </label>
+                                <input class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/40" id="website" placeholder="https://example.com" type="url" />
+                            </div>
+
+                            <!-- Project Type Dropdown -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="project_type">
+                                        Project Type <span class="text-primary">*</span>
+                                    </label>
+                                    <select id="project_type" class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                        <option value="Complete Website Modernization & Redesign">Complete Redesign & Modernization</option>
+                                        <option value="Ultra-Fast Business / Clinic Jamstack Site">Ultra-Fast Jamstack / Clinic Build</option>
+                                        <option value="Core Web Vitals & Speed Optimization Audit">Core Web Vitals Speed Audit</option>
+                                        <option value="Custom High-Performance Web Application">Custom Web Application</option>
+                                        <option value="Bespoke Enterprise Edge Architecture">Bespoke Enterprise Edge</option>
+                                    </select>
+                                </div>
+
+                                <!-- Budget Range Selector -->
+                                <div>
+                                    <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="budget">
+                                        Estimated Budget <span class="text-primary">*</span>
+                                    </label>
+                                    <select id="budget" class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                        <option value="$1,800 - $3,500 (Starter Velocity)">$1,800 - $3,500 (Starter)</option>
+                                        <option value="$3,500 - $6,500 (Growth Scale)" selected>$3,500 - $6,500 (Growth)</option>
+                                        <option value="$6,500 - $12,000 (Bespoke Application)">$6,500 - $12,000 (Bespoke)</option>
+                                        <option value="$12,000+ (Enterprise Multi-Region)">$12,000+ (Enterprise)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Project Scope Description -->
+                            <div>
+                                <label class="block font-label-sm text-xs text-text-dim mb-2 uppercase tracking-wider" for="scope">
+                                    Project Scope & Architecture Requirements <span class="text-primary">*</span>
+                                </label>
+                                <textarea required class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-dim/40 resize-none" id="scope" placeholder="Describe current pain points, timeline goals, desired integrations, or target metrics..." rows="4"></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button class="w-full bg-primary text-black py-4 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(76,215,246,0.3)]" type="submit">
+                                <span>Transmit Inquiry Brief</span>
+                                <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">send</span>
+                            </button>
+
+                            <p class="font-label-sm text-[11px] text-text-dim text-center">
+                                Submitting opens your default email client with your pre-formatted brief. No spam guaranteed.
+                            </p>
+                        </form>
+
+                        <!-- Submission Confirmation Banner (hidden initially) -->
+                        <div id="form-success" class="hidden mt-6 p-4 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 font-body-md text-xs sm:text-sm text-center">
+                            ✓ Your project brief has been formatted and initiated! We will follow up in under 24 hours.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-surface-dim w-full py-16 border-t border-surface-variant relative z-10">
+        <div class="max-w-container-max mx-auto px-4 sm:px-8 md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 mb-12">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-1 space-y-4">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <img alt="Rendercept Logo" class="h-7 w-7 object-contain rounded bg-surface-container opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                        <span class="font-headline-md text-xl font-bold text-primary">Rendercept</span>
+                    </a>
+                    <p class="font-body-md text-xs sm:text-sm text-text-dim leading-relaxed">
+                        High-performance static site engineering and scalable web architectures built with developer precision.
+                    </p>
+                    <div class="inline-flex items-center gap-2 font-label-sm text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Edge Infrastructure: 99.99%
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Navigation</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="work.html" class="hover:text-primary transition-colors">Work & Case Studies</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About & Standards</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Capabilities -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Capabilities</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="services.html#ultra-fast" class="hover:text-primary transition-colors">Ultra-Fast Static Sites</a></li>
+                        <li><a href="services.html#modernization" class="hover:text-primary transition-colors">Website Modernization</a></li>
+                        <li><a href="services.html#speed" class="hover:text-primary transition-colors">Core Web Vitals Audit</a></li>
+                        <li><a href="services.html#pricing" class="hover:text-primary transition-colors">Pricing & Scope Breakdown</a></li>
+                        <li><a href="work.html#before-after" class="hover:text-primary transition-colors">Speed Comparisons</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & SLA -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Engineering SLA</h5>
+                    <div class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">schedule</span>
+                            <span>Response SLA: <strong>&lt; 24 Hours</strong></span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">mail</span>
+                            <a href="mailto:siddhant@rendercept.com" class="hover:text-primary text-on-surface font-label-md text-xs transition-colors">siddhant@rendercept.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">public</span>
+                            <span>Distributed Remote Operations</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-surface-variant/70 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-label-sm text-text-dim">
+                <p>© 2026 Rendercept. All rights reserved.</p>
+                <p class="text-text-dim/80">Synthetic Velocity • Developer-First Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Handler & Mobile Menu Script -->
+    <script>
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (mobileMenuBtn && mobileDrawer && menuIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileDrawer.classList.toggle('hidden');
+                menuIcon.textContent = isExpanded ? 'menu' : 'close';
+            });
+        }
+
+        // Input label focus highlighting
+        const formInputs = document.querySelectorAll('input, textarea, select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', (e) => {
+                const label = e.target.previousElementSibling;
+                if (label && label.tagName === 'LABEL') label.classList.add('text-primary');
+            });
+            input.addEventListener('blur', (e) => {
+                const label = e.target.previousElementSibling;
+                if (label && label.tagName === 'LABEL') label.classList.remove('text-primary');
+            });
+        });
+
+        // URL Parameters prefill support (e.g. ?service=clinic or ?tier=starter)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            const tierParam = urlParams.get('tier');
+            const projectTypeSelect = document.getElementById('project_type');
+            const budgetSelect = document.getElementById('budget');
+
+            if (serviceParam === 'clinic' && projectTypeSelect) {
+                projectTypeSelect.value = 'Ultra-Fast Business / Clinic Jamstack Site';
+            } else if (serviceParam === 'modernization' && projectTypeSelect) {
+                projectTypeSelect.value = 'Complete Website Modernization & Redesign';
+            } else if (serviceParam === 'speed-audit' && projectTypeSelect) {
+                projectTypeSelect.value = 'Core Web Vitals & Speed Optimization Audit';
+            }
+
+            if (tierParam === 'starter' && budgetSelect) {
+                budgetSelect.value = '$1,800 - $3,500 (Starter Velocity)';
+            } else if (tierParam === 'growth' && budgetSelect) {
+                budgetSelect.value = '$3,500 - $6,500 (Growth Scale)';
+            } else if (tierParam === 'enterprise' && budgetSelect) {
+                budgetSelect.value = '$12,000+ (Enterprise Multi-Region)';
+            }
+        });
+
+        // Mailto Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const website = document.getElementById('website').value || 'Not provided';
+            const projectType = document.getElementById('project_type').value;
+            const budget = document.getElementById('budget').value;
+            const scope = document.getElementById('scope').value;
+
+            const subject = `Rendercept Project Inquiry: ${name} [${projectType}]`;
+            const body = `Name: ${name}
+Work Email: ${email}
+Current Website: ${website}
+Project Type: ${projectType}
+Budget Range: ${budget}
+
+Project Scope & Requirements:
+${scope}`;
+
+            const mailtoUrl = `mailto:siddhant@rendercept.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            const successEl = document.getElementById('form-success');
+            if (successEl) {
+                successEl.classList.remove('hidden');
+            }
+
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Services & Engineering Offerings - Rendercept</title>
+    <meta name="description" content="Explore Rendercept's specialized engineering capabilities: Ultra-Fast Static Sites, Complete Modernization & Redesigns, and Core Web Vitals Speed Optimization." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS with CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#4cd7f6",
+                        "text-dim": "#94A3B8",
+                        "on-primary-container": "#00424f",
+                        "inverse-surface": "#dae2fd",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-primary-fixed": "#001f26",
+                        "tertiary": "#ffb873",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#5b3200",
+                        "border-accent": "rgba(34, 211, 238, 0.2)",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-secondary-fixed": "#07006c",
+                        "surface-container-high": "#222a3d",
+                        "surface-bright": "#31394d",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdcbf",
+                        "secondary-container": "#3131c0",
+                        "outline-variant": "#3d494c",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb873",
+                        "primary": "#4cd7f6",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "tertiary-container": "#e89337",
+                        "on-error": "#690005",
+                        "secondary": "#c0c1ff",
+                        "on-tertiary": "#4b2800",
+                        "primary-fixed": "#acedff",
+                        "on-primary": "#003640",
+                        "on-secondary": "#1000a9",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-surface-variant": "#bcc9cd",
+                        "on-surface": "#dae2fd",
+                        "glass-bg": "rgba(15, 23, 42, 0.7)",
+                        "surface-container-lowest": "#060e20",
+                        "background": "#0b1326",
+                        "outline": "#869397",
+                        "on-primary-fixed-variant": "#004e5c",
+                        "inverse-primary": "#00687a",
+                        "primary-container": "#06b6d4",
+                        "surface-tint": "#4cd7f6",
+                        "surface": "#1E293B",
+                        "on-secondary-container": "#b0b2ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "display": ["DM Sans", "sans-serif"],
+                        "headline-lg": ["DM Sans", "sans-serif"],
+                        "headline-md": ["DM Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "label-sm": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                background: rgba(15, 23, 42, 0.65);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: 1px solid rgba(255, 255, 255, 0.03);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            .glow-active {
+                box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+            }
+            .glow-hover {
+                transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            }
+            .glow-hover:hover {
+                box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+                border-color: rgba(76, 215, 246, 0.4);
+                transform: translateY(-2px);
+            }
+            .cyan-line-top {
+                position: relative;
+            }
+            .cyan-line-top::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #4cd7f6;
+            }
+            .ambient-flare {
+                position: absolute;
+                border-radius: 9999px;
+                filter: blur(100px);
+                pointer-events: none;
+                z-index: 0;
+            }
+            .nav-link-active {
+                color: #4cd7f6;
+                position: relative;
+            }
+            .nav-link-active::after {
+                content: '';
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #4cd7f6;
+                box-shadow: 0 0 8px #4cd7f6;
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden pt-20 selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col justify-between">
+    
+    <!-- Top Global Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-border-accent shadow-sm" id="global-nav">
+        <div class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto h-20">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Rendercept Home">
+                <img alt="Rendercept Logo" class="h-8 w-8 object-contain rounded-md bg-surface-container border border-surface-variant group-hover:border-primary/50 transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                <span class="font-headline-md text-2xl font-bold text-primary tracking-tight group-hover:text-primary-fixed transition-colors">Rendercept</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 font-body-md text-sm lg:text-base">
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+                <a class="nav-link-active font-medium transition-colors duration-200" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="work.html">Work</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="about.html">About</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="contact.html">Contact</a>
+            </div>
+
+            <!-- Header Action CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a class="bg-primary text-black px-5 py-2.5 rounded font-label-md text-xs tracking-wider uppercase hover:bg-primary-fixed-dim transition-all duration-200 font-bold active:scale-95 shadow-[0_0_15px_rgba(76,215,246,0.25)] hover:shadow-[0_0_20px_rgba(76,215,246,0.45)] inline-flex items-center gap-1.5" href="contact.html">
+                    <span>Start Project</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none focus:ring-1 focus:ring-primary rounded" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-drawer" class="hidden md:hidden bg-surface-dim/95 backdrop-blur-xl border-b border-surface-variant px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="index.html">Home</a>
+                <a class="text-primary font-semibold text-lg py-2 border-l-2 border-primary pl-3 bg-primary/5 rounded-r" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="work.html">Work</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="about.html">About</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="contact.html">Contact</a>
+                <div class="pt-4 border-t border-surface-variant flex flex-col gap-3">
+                    <a class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-colors" href="contact.html">
+                        Start a Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Services Hero -->
+        <section class="relative py-20 lg:py-28 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto text-center overflow-hidden">
+            <div class="ambient-flare top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10"></div>
+            <div class="ambient-flare bottom-10 right-1/4 w-[450px] h-[450px] bg-secondary/15"></div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/90 border border-border-accent mb-6">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="font-label-sm text-xs text-primary uppercase tracking-wider font-semibold">Specialized Engineering Services</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl font-bold text-on-surface mb-6 tracking-tight leading-[1.15]">
+                    Engineering for <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sub-Second Speed</span> and Conversion Power.
+                </h1>
+                
+                <p class="font-body-lg text-lg sm:text-xl text-text-dim max-w-2xl mx-auto mb-10 leading-relaxed">
+                    We eliminate runtime bloat, sluggish CMS templates, and unoptimized server stacks. Every line of code is engineered for maximum speed, security, and measurable conversion lift.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-3 font-label-sm text-xs text-text-dim">
+                    <span class="px-3 py-1.5 rounded-full bg-surface-container border border-surface-variant flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-emerald-400 text-sm">check</span> Jamstack / Static Architecture
+                    </span>
+                    <span class="px-3 py-1.5 rounded-full bg-surface-container border border-surface-variant flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-emerald-400 text-sm">check</span> 100/100 Core Web Vitals SLA
+                    </span>
+                    <span class="px-3 py-1.5 rounded-full bg-surface-container border border-surface-variant flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-emerald-400 text-sm">check</span> Multi-Region Global Edge CDN
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- In-Depth 3 Service Tiers / Offerings -->
+        <section class="py-16 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto space-y-16">
+            
+            <!-- Offering 1: Ultra-Fast Business & Clinic Websites -->
+            <div id="ultra-fast" class="glass-panel cyan-line-top rounded-2xl p-8 lg:p-12 border border-surface-variant relative overflow-hidden glow-hover">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20 uppercase tracking-wider">
+                            01 • Core Jamstack Offering
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-on-surface">
+                            Ultra-Fast Business & Clinic Websites
+                        </h2>
+                        <p class="font-body-lg text-text-dim leading-relaxed">
+                            Engineered specifically for medical practices, dental clinics, legal firms, and local businesses that cannot afford to lose prospective clients to sluggish 5-second mobile load times.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">phone_iphone</span>
+                                    Mobile-First UX
+                                </div>
+                                <p class="text-xs text-text-dim">Zero layout shift, touch-optimized booking CTAs, and instant phone call triggers.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">search_check</span>
+                                    Local SEO Primed
+                                </div>
+                                <p class="text-xs text-text-dim">Structured Schema.org markup for Google Maps ranking and immediate crawler indexing.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">security</span>
+                                    Zero Maintenance & Security
+                                </div>
+                                <p class="text-xs text-text-dim">No vulnerable SQL databases, WordPress plugin exploits, or monthly patching headaches.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">cloud_done</span>
+                                    Free Global CDN Hosting
+                                </div>
+                                <p class="text-xs text-text-dim">Hosted on GitHub Pages / Cloudflare Edge with automatic SSL and zero hosting fees.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex items-center gap-4">
+                            <a href="contact.html?service=clinic" class="bg-primary text-black px-6 py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all inline-flex items-center gap-2">
+                                <span>Inquire for Business Build</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface-container/90 border border-surface-variant rounded-xl p-6 lg:p-8 space-y-6">
+                        <h4 class="font-label-md text-xs font-bold text-primary uppercase tracking-widest border-b border-surface-variant pb-3">
+                            Standard Deliverables
+                        </h4>
+                        <ul class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Custom tailored UI designed to your specific brand identity (no cookie-cutter themes)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Lead generation capture form with direct email/SMS alerts</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Under 500ms real-world mobile loading guarantee</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Custom domain configuration & enterprise CDN setup</span>
+                            </li>
+                        </ul>
+                        <div class="p-4 rounded bg-[#0a0f1d] border border-surface-variant font-label-sm text-[11px] text-text-dim">
+                            <span class="text-primary font-bold">Ideal for:</span> Medical clinics, dental offices, legal practices, high-end consultants, and boutique B2B agencies.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offering 2: Complete Website Modernization & Redesign -->
+            <div id="modernization" class="glass-panel cyan-line-top rounded-2xl p-8 lg:p-12 border border-surface-variant relative overflow-hidden glow-hover">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-secondary bg-secondary-container/30 px-3 py-1 rounded-full border border-secondary/30 uppercase tracking-wider">
+                            02 • Transformation Architecture
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-on-surface">
+                            Complete Modernization & Redesign
+                        </h2>
+                        <p class="font-body-lg text-text-dim leading-relaxed">
+                            Transforming legacy, bloated, high-bounce-rate websites into sleek, ultra-responsive digital machines. We audit your existing conversion funnels and overhaul the visual & technical stack.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">trending_up</span>
+                                    Drop-off Elimination
+                                </div>
+                                <p class="text-xs text-text-dim">Fixing broken user journeys, confusing navigation trees, and slow checkout steps.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">palette</span>
+                                    Synthetic Velocity Aesthetic
+                                </div>
+                                <p class="text-xs text-text-dim">Modern typography, crisp dark/light contrast, glassmorphic accents, and refined micro-interactions.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">devices</span>
+                                    Flawless Responsive Fluidity
+                                </div>
+                                <p class="text-xs text-text-dim">Tested across all viewport breakpoints from mobile devices to ultra-wide desktop monitors.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">sync_alt</span>
+                                    Zero Downtime Migration
+                                </div>
+                                <p class="text-xs text-text-dim">Seamless transition maintaining 100% of your existing SEO backlinks and URL paths.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex items-center gap-4">
+                            <a href="contact.html?service=modernization" class="bg-primary text-black px-6 py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all inline-flex items-center gap-2">
+                                <span>Request Redesign Proposal</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface-container/90 border border-surface-variant rounded-xl p-6 lg:p-8 space-y-6">
+                        <h4 class="font-label-md text-xs font-bold text-primary uppercase tracking-widest border-b border-surface-variant pb-3">
+                            Migration Checklist
+                        </h4>
+                        <ul class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Full codebase & asset weight audit with before/after benchmarks</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Interactive Figma / Prototype previews for stakeholder alignment</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Elimination of heavy scripts and third-party blocking trackers</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5">check_circle</span>
+                                <span>Redirect map creation (301 status preserved for search engines)</span>
+                            </li>
+                        </ul>
+                        <div class="p-4 rounded bg-[#0a0f1d] border border-surface-variant font-label-sm text-[11px] text-text-dim">
+                            <span class="text-primary font-bold">Ideal for:</span> Companies with 2+ year old sites suffering from high mobile bounce rates and lost leads.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offering 3: Core Web Vitals & Speed Optimization -->
+            <div id="speed" class="glass-panel cyan-line-top rounded-2xl p-8 lg:p-12 border border-surface-variant relative overflow-hidden glow-hover">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20 uppercase tracking-wider">
+                            03 • Performance Profiling
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-on-surface">
+                            Core Web Vitals & Speed Optimization
+                        </h2>
+                        <p class="font-body-lg text-text-dim leading-relaxed">
+                            Google penalizes slow sites in search rankings and visitors abandon carts when pages lag. We perform surgical performance engineering to hit sub-second Largest Contentful Paint (LCP) and zero Cumulative Layout Shift (CLS).
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">timer</span>
+                                    Sub-Second LCP
+                                </div>
+                                <p class="text-xs text-text-dim">Immediate critical CSS inlining, font-display optimization, and modern AVIF/WebP image pipeline.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">align_horizontal_left</span>
+                                    Zero CLS (0.00)
+                                </div>
+                                <p class="text-xs text-text-dim">Eliminating annoying layout jumping by enforcing strict aspect ratios and pre-allocated media containers.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">data_thresholding</span>
+                                    INP / FID Profiling
+                                </div>
+                                <p class="text-xs text-text-dim">Eliminating long JavaScript tasks from the main thread so user clicks respond in under 50ms.</p>
+                            </div>
+                            <div class="bg-surface-container/70 p-4 rounded border border-surface-variant space-y-1.5">
+                                <div class="font-headline-md text-sm font-bold text-on-surface flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">hub</span>
+                                    Edge Asset Caching
+                                </div>
+                                <p class="text-xs text-text-dim">Smart Cache-Control headers, Brotli compression, and distributed edge origin shielding.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex items-center gap-4">
+                            <a href="contact.html?service=speed-audit" class="bg-primary text-black px-6 py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all inline-flex items-center gap-2">
+                                <span>Book a Speed Audit</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface-container/90 border border-surface-variant rounded-xl p-6 lg:p-8 space-y-6">
+                        <h4 class="font-label-md text-xs font-bold text-primary uppercase tracking-widest border-b border-surface-variant pb-3">
+                            Performance Targets
+                        </h4>
+                        <div class="space-y-4 font-body-md text-xs">
+                            <div class="bg-[#0a0f1d] p-3.5 rounded border border-surface-variant flex justify-between items-center">
+                                <span>Largest Contentful Paint (LCP)</span>
+                                <span class="font-label-md text-emerald-400 font-bold">&lt; 0.8s (Good)</span>
+                            </div>
+                            <div class="bg-[#0a0f1d] p-3.5 rounded border border-surface-variant flex justify-between items-center">
+                                <span>Cumulative Layout Shift (CLS)</span>
+                                <span class="font-label-md text-emerald-400 font-bold">0.00 (Zero Shift)</span>
+                            </div>
+                            <div class="bg-[#0a0f1d] p-3.5 rounded border border-surface-variant flex justify-between items-center">
+                                <span>Interaction to Next Paint (INP)</span>
+                                <span class="font-label-md text-emerald-400 font-bold">&lt; 50ms (Instant)</span>
+                            </div>
+                            <div class="bg-[#0a0f1d] p-3.5 rounded border border-surface-variant flex justify-between items-center">
+                                <span>Mobile Lighthouse Target</span>
+                                <span class="font-label-md text-primary font-bold">95 – 100</span>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded bg-[#0a0f1d] border border-surface-variant font-label-sm text-[11px] text-text-dim">
+                            <span class="text-primary font-bold">Ideal for:</span> Existing web apps and high-traffic commerce brands needing immediate speed rescue without rebuilding from scratch.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Pricing & Scope Guide Breakdown -->
+        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim border-t border-surface-variant relative" id="pricing">
+            <div class="ambient-flare top-1/3 right-1/4 w-[500px] h-[500px] bg-primary/10"></div>
+            
+            <div class="max-w-container-max mx-auto relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Transparent Engagements
+                    </div>
+                    <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-4">Engineering Tiers & Scope Breakdown</h2>
+                    <p class="font-body-lg text-base sm:text-lg text-text-dim">
+                        Fixed-scope deliverables, direct collaboration with principal engineers, and zero hidden retainer surprises.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Tier 1: Starter -->
+                    <div class="glass-panel rounded-xl p-8 border border-surface-variant flex flex-col justify-between glow-hover relative group">
+                        <div>
+                            <div class="font-label-sm text-xs text-text-dim uppercase tracking-wider mb-2">Starter Velocity</div>
+                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-2">Clinic & Pro Site</h3>
+                            <p class="font-body-md text-xs text-text-dim mb-6">High-speed, conversion-tuned multi-page static site for local businesses & practices.</p>
+                            
+                            <div class="mb-6 pb-6 border-b border-surface-variant">
+                                <div class="font-display text-4xl font-bold text-primary">$1,800 <span class="font-body-md text-sm text-text-dim font-normal">fixed</span></div>
+                                <span class="font-label-sm text-[11px] text-text-dim">Estimated delivery: 7 - 10 days</span>
+                            </div>
+
+                            <ul class="space-y-3 font-body-md text-xs text-text-dim mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Up to 5 static pages (Home, Services, About, Contact, Privacy)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Mobile-first responsive design system</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Sub-500ms Jamstack load times</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Schema.org local SEO tags & inquiry form</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>GitHub Pages / Cloudflare edge setup</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?tier=starter" class="w-full text-center bg-surface-container border border-border-accent text-primary py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-black transition-all">
+                            Select Starter Tier
+                        </a>
+                    </div>
+
+                    <!-- Tier 2: Growth (Featured) -->
+                    <div class="glass-panel cyan-line-top rounded-xl p-8 border border-primary/40 flex flex-col justify-between glow-active relative group bg-surface-container/60 transform md:-translate-y-2">
+                        <div class="absolute -top-3.5 right-6 bg-primary text-black font-label-sm text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-[0_0_15px_rgba(76,215,246,0.6)]">
+                            Most Popular
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-xs text-primary uppercase tracking-wider mb-2">Growth Scale</div>
+                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-2">Full Brand & App</h3>
+                            <p class="font-body-md text-xs text-text-dim mb-6">Complete redesign or high-performance custom application for scaling tech startups.</p>
+                            
+                            <div class="mb-6 pb-6 border-b border-surface-variant">
+                                <div class="font-display text-4xl font-bold text-primary">$3,900 <span class="font-body-md text-sm text-text-dim font-normal">fixed</span></div>
+                                <span class="font-label-sm text-[11px] text-text-dim">Estimated delivery: 2 - 3 weeks</span>
+                            </div>
+
+                            <ul class="space-y-3 font-body-md text-xs text-text-dim mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Complete custom design tokens (DESIGN.md)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Up to 10 high-conversion pages or interactive SPA</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Interactive filtering, before/after showcases, & micro-animations</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Guaranteed 98+ Core Web Vitals mobile benchmark</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>30 days post-launch SLA support</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?tier=growth" class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all shadow-[0_0_20px_rgba(76,215,246,0.4)]">
+                            Select Growth Tier
+                        </a>
+                    </div>
+
+                    <!-- Tier 3: Bespoke Enterprise -->
+                    <div class="glass-panel rounded-xl p-8 border border-surface-variant flex flex-col justify-between glow-hover relative group">
+                        <div>
+                            <div class="font-label-sm text-xs text-text-dim uppercase tracking-wider mb-2">Bespoke Edge</div>
+                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-2">Enterprise Edge</h3>
+                            <p class="font-body-md text-xs text-text-dim mb-6">Complex multi-region architectures, headless commerce, and deep speed engineering.</p>
+                            
+                            <div class="mb-6 pb-6 border-b border-surface-variant">
+                                <div class="font-display text-4xl font-bold text-primary">Custom <span class="font-body-md text-sm text-text-dim font-normal">from $6,500</span></div>
+                                <span class="font-label-sm text-[11px] text-text-dim">Timeline tailored to roadmap</span>
+                            </div>
+
+                            <ul class="space-y-3 font-body-md text-xs text-text-dim mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Multi-region edge compute workers & KV storage</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Headless CMS / API microservice integrations</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Custom automated CI/CD deployment pipelines</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Dedicated principal engineer & SLA guarantee</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-emerald-400 text-sm">check</span>
+                                    <span>Comprehensive developer handover docs & training</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?tier=enterprise" class="w-full text-center bg-surface-container border border-border-accent text-primary py-3 rounded font-label-md text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-black transition-all">
+                            Inquire Enterprise
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="py-20 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto text-center relative">
+            <div class="glass-panel rounded-2xl p-10 sm:p-14 border border-surface-variant glow-active relative overflow-hidden">
+                <div class="ambient-flare top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/15"></div>
+                <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-on-surface">
+                        Not sure which tier fits your technical stack?
+                    </h2>
+                    <p class="font-body-lg text-sm sm:text-base text-text-dim leading-relaxed">
+                        Book a free 20-minute architecture scoping call. We'll inspect your current site, identify performance bottlenecks, and provide an actionable scope roadmap.
+                    </p>
+                    <div>
+                        <a href="contact.html" class="bg-primary text-black px-8 py-4 rounded font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all inline-flex items-center gap-2 shadow-[0_0_20px_rgba(76,215,246,0.3)]">
+                            <span>Schedule Scoping Session</span>
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-surface-dim w-full py-16 border-t border-surface-variant relative z-10">
+        <div class="max-w-container-max mx-auto px-4 sm:px-8 md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 mb-12">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-1 space-y-4">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <img alt="Rendercept Logo" class="h-7 w-7 object-contain rounded bg-surface-container opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                        <span class="font-headline-md text-xl font-bold text-primary">Rendercept</span>
+                    </a>
+                    <p class="font-body-md text-xs sm:text-sm text-text-dim leading-relaxed">
+                        High-performance static site engineering and scalable web architectures built with developer precision.
+                    </p>
+                    <div class="inline-flex items-center gap-2 font-label-sm text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Edge Infrastructure: 99.99%
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Navigation</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="work.html" class="hover:text-primary transition-colors">Work & Case Studies</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About & Standards</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Capabilities -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Capabilities</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="services.html#ultra-fast" class="hover:text-primary transition-colors">Ultra-Fast Static Sites</a></li>
+                        <li><a href="services.html#modernization" class="hover:text-primary transition-colors">Website Modernization</a></li>
+                        <li><a href="services.html#speed" class="hover:text-primary transition-colors">Core Web Vitals Audit</a></li>
+                        <li><a href="services.html#pricing" class="hover:text-primary transition-colors">Pricing & Scope Breakdown</a></li>
+                        <li><a href="work.html#before-after" class="hover:text-primary transition-colors">Speed Comparisons</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & SLA -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Engineering SLA</h5>
+                    <div class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">schedule</span>
+                            <span>Response SLA: <strong>&lt; 24 Hours</strong></span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">mail</span>
+                            <a href="mailto:siddhant@rendercept.com" class="hover:text-primary text-on-surface font-label-md text-xs transition-colors">siddhant@rendercept.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">public</span>
+                            <span>Distributed Remote Operations</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-surface-variant/70 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-label-sm text-text-dim">
+                <p>© 2026 Rendercept. All rights reserved.</p>
+                <p class="text-text-dim/80">Synthetic Velocity • Developer-First Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (mobileMenuBtn && mobileDrawer && menuIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileDrawer.classList.toggle('hidden');
+                menuIcon.textContent = isExpanded ? 'menu' : 'close';
+            });
+        }
+    </script>
+</body>
+</html>

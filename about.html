@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About & Engineering Standards - Rendercept</title>
+    <meta name="description" content="Discover the story, vision, and engineering standards behind Rendercept. Learn why technical speed equals conversion revenue and how we build zero-bloat web architectures." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS with CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#4cd7f6",
+                        "text-dim": "#94A3B8",
+                        "on-primary-container": "#00424f",
+                        "inverse-surface": "#dae2fd",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-primary-fixed": "#001f26",
+                        "tertiary": "#ffb873",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#5b3200",
+                        "border-accent": "rgba(34, 211, 238, 0.2)",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-secondary-fixed": "#07006c",
+                        "surface-container-high": "#222a3d",
+                        "surface-bright": "#31394d",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdcbf",
+                        "secondary-container": "#3131c0",
+                        "outline-variant": "#3d494c",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb873",
+                        "primary": "#4cd7f6",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "tertiary-container": "#e89337",
+                        "on-error": "#690005",
+                        "secondary": "#c0c1ff",
+                        "on-tertiary": "#4b2800",
+                        "primary-fixed": "#acedff",
+                        "on-primary": "#003640",
+                        "on-secondary": "#1000a9",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-surface-variant": "#bcc9cd",
+                        "on-surface": "#dae2fd",
+                        "glass-bg": "rgba(15, 23, 42, 0.7)",
+                        "surface-container-lowest": "#060e20",
+                        "background": "#0b1326",
+                        "outline": "#869397",
+                        "on-primary-fixed-variant": "#004e5c",
+                        "inverse-primary": "#00687a",
+                        "primary-container": "#06b6d4",
+                        "surface-tint": "#4cd7f6",
+                        "surface": "#1E293B",
+                        "on-secondary-container": "#b0b2ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "display": ["DM Sans", "sans-serif"],
+                        "headline-lg": ["DM Sans", "sans-serif"],
+                        "headline-md": ["DM Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "label-sm": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                background: rgba(15, 23, 42, 0.65);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: 1px solid rgba(255, 255, 255, 0.03);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            .glow-active {
+                box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+            }
+            .glow-hover {
+                transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            }
+            .glow-hover:hover {
+                box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+                border-color: rgba(76, 215, 246, 0.4);
+                transform: translateY(-2px);
+            }
+            .cyan-line-top {
+                position: relative;
+            }
+            .cyan-line-top::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #4cd7f6;
+            }
+            .ambient-flare {
+                position: absolute;
+                border-radius: 9999px;
+                filter: blur(100px);
+                pointer-events: none;
+                z-index: 0;
+            }
+            .nav-link-active {
+                color: #4cd7f6;
+                position: relative;
+            }
+            .nav-link-active::after {
+                content: '';
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #4cd7f6;
+                box-shadow: 0 0 8px #4cd7f6;
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden pt-20 selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col justify-between">
+    
+    <!-- Top Global Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-border-accent shadow-sm" id="global-nav">
+        <div class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto h-20">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Rendercept Home">
+                <img alt="Rendercept Logo" class="h-8 w-8 object-contain rounded-md bg-surface-container border border-surface-variant group-hover:border-primary/50 transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                <span class="font-headline-md text-2xl font-bold text-primary tracking-tight group-hover:text-primary-fixed transition-colors">Rendercept</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 font-body-md text-sm lg:text-base">
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="work.html">Work</a>
+                <a class="nav-link-active font-medium transition-colors duration-200" href="about.html">About</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="contact.html">Contact</a>
+            </div>
+
+            <!-- Header Action CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <a class="bg-primary text-black px-5 py-2.5 rounded font-label-md text-xs tracking-wider uppercase hover:bg-primary-fixed-dim transition-all duration-200 font-bold active:scale-95 shadow-[0_0_15px_rgba(76,215,246,0.25)] hover:shadow-[0_0_20px_rgba(76,215,246,0.45)] inline-flex items-center gap-1.5" href="contact.html">
+                    <span>Start Project</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none focus:ring-1 focus:ring-primary rounded" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-drawer" class="hidden md:hidden bg-surface-dim/95 backdrop-blur-xl border-b border-surface-variant px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="index.html">Home</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="work.html">Work</a>
+                <a class="text-primary font-semibold text-lg py-2 border-l-2 border-primary pl-3 bg-primary/5 rounded-r" href="about.html">About</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="contact.html">Contact</a>
+                <div class="pt-4 border-t border-surface-variant flex flex-col gap-3">
+                    <a class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-colors" href="contact.html">
+                        Start a Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- About Hero & Philosophy -->
+        <section class="relative py-20 lg:py-28 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+            <div class="ambient-flare top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10"></div>
+            <div class="ambient-flare bottom-10 right-1/4 w-[450px] h-[450px] bg-secondary/15"></div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/90 border border-border-accent">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="font-label-sm text-xs text-primary uppercase tracking-wider font-semibold">Engineering Manifesto</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl font-bold text-on-surface tracking-tight leading-[1.15]">
+                    Why Technical Speed Equals <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Conversion Revenue</span>.
+                </h1>
+                
+                <p class="font-body-lg text-lg sm:text-xl text-text-dim max-w-3xl mx-auto leading-relaxed">
+                    The modern web has become needlessly bloated. Megabytes of JavaScript frameworks, heavy analytics trackers, and slow database lookups destroy user attention. Rendercept was founded to prove that lean, high-velocity engineering generates superior business outcomes.
+                </p>
+            </div>
+
+            <!-- Empirical Telemetry Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16 relative z-10">
+                <div class="glass-panel p-6 rounded-xl border border-surface-variant text-center glow-hover">
+                    <div class="font-display text-3xl sm:text-4xl font-bold text-primary mb-1">100ms</div>
+                    <div class="font-label-sm text-xs text-text-dim">Latency reduction yields +1% revenue lift</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-surface-variant text-center glow-hover">
+                    <div class="font-display text-3xl sm:text-4xl font-bold text-primary mb-1">&lt;0.4s</div>
+                    <div class="font-label-sm text-xs text-text-dim">Average Largest Contentful Paint (LCP)</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-surface-variant text-center glow-hover">
+                    <div class="font-display text-3xl sm:text-4xl font-bold text-primary mb-1">0 kB</div>
+                    <div class="font-label-sm text-xs text-text-dim">Unused third-party script payload</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-surface-variant text-center glow-hover">
+                    <div class="font-display text-3xl sm:text-4xl font-bold text-primary mb-1">99.99%</div>
+                    <div class="font-label-sm text-xs text-text-dim">Global Edge CDN Uptime SLA</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- "The Velocity Standard": 4 Engineering Principles -->
+        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim border-t border-surface-variant relative" id="standards">
+            <div class="ambient-flare top-1/2 right-10 w-[500px] h-[500px] bg-primary/10"></div>
+            
+            <div class="max-w-container-max mx-auto relative z-10">
+                <div class="max-w-3xl mb-16">
+                    <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Architectural Principles
+                    </div>
+                    <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-4">The Velocity Standard</h2>
+                    <p class="font-body-lg text-base sm:text-lg text-text-dim">
+                        Every digital product built at Rendercept conforms to four immutable engineering benchmarks.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Principle 1: Zero Bloat -->
+                    <div class="glass-panel cyan-line-top rounded-xl p-8 border border-surface-variant glow-hover space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-3xl p-2.5 bg-surface-container rounded-lg border border-surface-variant">cleaning_services</span>
+                            <span class="font-label-md text-xs text-primary uppercase tracking-widest font-bold">Principle 01</span>
+                        </div>
+                        <h3 class="font-headline-md text-2xl font-bold text-on-surface">Zero Runtime Bloat</h3>
+                        <p class="font-body-md text-sm text-text-dim leading-relaxed">
+                            We write clean, semantic HTML and tailored Vanilla CSS / Tailwind utilities. We do not import 500kB component libraries for simple UI interactions. Every byte delivered over the wire serves a direct conversion purpose.
+                        </p>
+                    </div>
+
+                    <!-- Principle 2: Accessibility First -->
+                    <div class="glass-panel cyan-line-top rounded-xl p-8 border border-surface-variant glow-hover space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-3xl p-2.5 bg-surface-container rounded-lg border border-surface-variant">accessibility_new</span>
+                            <span class="font-label-md text-xs text-primary uppercase tracking-widest font-bold">Principle 02</span>
+                        </div>
+                        <h3 class="font-headline-md text-2xl font-bold text-on-surface">Accessibility First (WCAG AA)</h3>
+                        <p class="font-body-md text-sm text-text-dim leading-relaxed">
+                            High performance is meaningless if users cannot navigate your interface. All code passes strict semantic standards, full keyboard navigation, screen-reader landmark compatibility, and high-contrast color ratios.
+                        </p>
+                    </div>
+
+                    <!-- Principle 3: Bulletproof Security -->
+                    <div class="glass-panel cyan-line-top rounded-xl p-8 border border-surface-variant glow-hover space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-3xl p-2.5 bg-surface-container rounded-lg border border-surface-variant">shield_lock</span>
+                            <span class="font-label-md text-xs text-primary uppercase tracking-widest font-bold">Principle 03</span>
+                        </div>
+                        <h3 class="font-headline-md text-2xl font-bold text-on-surface">Bulletproof Security</h3>
+                        <p class="font-body-md text-sm text-text-dim leading-relaxed">
+                            By leveraging static Jamstack architecture and edge microservices, we eliminate database exposure, SQL injection vectors, and constant CMS plugin vulnerability patches. Your site remains rock-solid and maintenance-free.
+                        </p>
+                    </div>
+
+                    <!-- Principle 4: Instant Mobile Rendering -->
+                    <div class="glass-panel cyan-line-top rounded-xl p-8 border border-surface-variant glow-hover space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-3xl p-2.5 bg-surface-container rounded-lg border border-surface-variant">electric_bolt</span>
+                            <span class="font-label-md text-xs text-primary uppercase tracking-widest font-bold">Principle 04</span>
+                        </div>
+                        <h3 class="font-headline-md text-2xl font-bold text-on-surface">Instant Mobile Rendering</h3>
+                        <p class="font-body-md text-sm text-text-dim leading-relaxed">
+                            Over 60% of all website traffic originates from mobile devices on variable cellular connections. We engineer and stress-test on real low-tier hardware, guaranteeing instant visual display and seamless touch responsiveness.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Agency Workflow: 4-Step Precision Process -->
+        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto relative" id="workflow">
+            <div class="ambient-flare top-1/4 left-1/3 w-[500px] h-[500px] bg-primary/10"></div>
+            
+            <div class="relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Execution Blueprint
+                    </div>
+                    <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-4">The Engineering Lifecycle</h2>
+                    <p class="font-body-lg text-base sm:text-lg text-text-dim">
+                        From initial telemetry inspection to global multi-region edge deployment.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    
+                    <!-- Step 01: Audit -->
+                    <div class="glass-panel rounded-xl p-6 border border-surface-variant flex flex-col justify-between glow-hover">
+                        <div class="space-y-4">
+                            <div class="font-display text-4xl font-bold text-primary/40">01</div>
+                            <h4 class="font-headline-md text-xl font-bold text-on-surface">Audit & Profiling</h4>
+                            <p class="font-body-md text-xs text-text-dim leading-relaxed">
+                                Deep architectural analysis of your existing funnel. We measure baseline TTFB, DOM node count, JavaScript execution bottlenecks, and drop-off points.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-surface-variant/60 font-label-sm text-[11px] text-primary">
+                            Deliverable: Benchmark Audit
+                        </div>
+                    </div>
+
+                    <!-- Step 02: Prototype -->
+                    <div class="glass-panel rounded-xl p-6 border border-surface-variant flex flex-col justify-between glow-hover">
+                        <div class="space-y-4">
+                            <div class="font-display text-4xl font-bold text-primary/40">02</div>
+                            <h4 class="font-headline-md text-xl font-bold text-on-surface">Synthetic Prototype</h4>
+                            <p class="font-body-md text-xs text-text-dim leading-relaxed">
+                                Design token creation (DESIGN.md), responsive layout blueprints, and high-fidelity interactive component previews. Aligned on aesthetics and ergonomics.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-surface-variant/60 font-label-sm text-[11px] text-primary">
+                            Deliverable: Design Tokens & Previews
+                        </div>
+                    </div>
+
+                    <!-- Step 03: Precision Build -->
+                    <div class="glass-panel rounded-xl p-6 border border-surface-variant flex flex-col justify-between glow-hover">
+                        <div class="space-y-4">
+                            <div class="font-display text-4xl font-bold text-primary/40">03</div>
+                            <h4 class="font-headline-md text-xl font-bold text-on-surface">Precision Build</h4>
+                            <p class="font-body-md text-xs text-text-dim leading-relaxed">
+                                Zero-bloat static compilation, image compression pipeline integration, local SEO schema generation, and strict TypeScript/Tailwind code writing.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-surface-variant/60 font-label-sm text-[11px] text-primary">
+                            Deliverable: Staging Repo Handover
+                        </div>
+                    </div>
+
+                    <!-- Step 04: Global Launch -->
+                    <div class="glass-panel rounded-xl p-6 border border-surface-variant flex flex-col justify-between glow-hover">
+                        <div class="space-y-4">
+                            <div class="font-display text-4xl font-bold text-primary/40">04</div>
+                            <h4 class="font-headline-md text-xl font-bold text-on-surface">Global Launch</h4>
+                            <p class="font-body-md text-xs text-text-dim leading-relaxed">
+                                Multi-region Edge CDN deployment, automated DNS propagation, SSL verification, and live Lighthouse 100/100 performance certification.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-surface-variant/60 font-label-sm text-[11px] text-emerald-400">
+                            Deliverable: 100/100 Certified
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="py-20 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto text-center relative">
+            <div class="glass-panel rounded-2xl p-10 sm:p-14 border border-surface-variant glow-active relative overflow-hidden">
+                <div class="ambient-flare top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/15"></div>
+                <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-on-surface">
+                        Ready to partner with an engineering-first web agency?
+                    </h2>
+                    <p class="font-body-lg text-sm sm:text-base text-text-dim leading-relaxed">
+                        Let's discuss your project constraints, architecture targets, and growth goals.
+                    </p>
+                    <div>
+                        <a href="contact.html" class="bg-primary text-black px-8 py-4 rounded font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-all inline-flex items-center gap-2 shadow-[0_0_20px_rgba(76,215,246,0.3)]">
+                            <span>Start the Conversation</span>
+                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-surface-dim w-full py-16 border-t border-surface-variant relative z-10">
+        <div class="max-w-container-max mx-auto px-4 sm:px-8 md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 mb-12">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-1 space-y-4">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <img alt="Rendercept Logo" class="h-7 w-7 object-contain rounded bg-surface-container opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                        <span class="font-headline-md text-xl font-bold text-primary">Rendercept</span>
+                    </a>
+                    <p class="font-body-md text-xs sm:text-sm text-text-dim leading-relaxed">
+                        High-performance static site engineering and scalable web architectures built with developer precision.
+                    </p>
+                    <div class="inline-flex items-center gap-2 font-label-sm text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Edge Infrastructure: 99.99%
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Navigation</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="work.html" class="hover:text-primary transition-colors">Work & Case Studies</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About & Standards</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Capabilities -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Capabilities</h5>
+                    <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
+                        <li><a href="services.html#ultra-fast" class="hover:text-primary transition-colors">Ultra-Fast Static Sites</a></li>
+                        <li><a href="services.html#modernization" class="hover:text-primary transition-colors">Website Modernization</a></li>
+                        <li><a href="services.html#speed" class="hover:text-primary transition-colors">Core Web Vitals Audit</a></li>
+                        <li><a href="services.html#pricing" class="hover:text-primary transition-colors">Pricing & Scope Breakdown</a></li>
+                        <li><a href="work.html#before-after" class="hover:text-primary transition-colors">Speed Comparisons</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & SLA -->
+                <div>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Engineering SLA</h5>
+                    <div class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">schedule</span>
+                            <span>Response SLA: <strong>&lt; 24 Hours</strong></span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">mail</span>
+                            <a href="mailto:siddhant@rendercept.com" class="hover:text-primary text-on-surface font-label-md text-xs transition-colors">siddhant@rendercept.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">public</span>
+                            <span>Distributed Remote Operations</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-surface-variant/70 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-label-sm text-text-dim">
+                <p>© 2026 Rendercept. All rights reserved.</p>
+                <p class="text-text-dim/80">Synthetic Velocity • Developer-First Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (mobileMenuBtn && mobileDrawer && menuIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileDrawer.classList.toggle('hidden');
+                menuIcon.textContent = isExpanded ? 'menu' : 'close';
+            });
+        }
+    </script>
+</body>
+</html>
