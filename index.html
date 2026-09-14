@@ -5,15 +5,20 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Rendercept - High-Performance Web Engineering & Modern Static Architecture</title>
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
-    <meta name="description" content="Custom static sites, Jamstack architectures, and zero-latency web engineering built for high-growth tech startups and clinical enterprises." />
-    
+    <link rel="icon" type="image/png"
+        href="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+    <meta name="description"
+        content="Custom static sites, Jamstack architectures, and zero-latency web engineering built for high-growth tech startups and clinical enterprises." />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
     <!-- Tailwind CSS with CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
@@ -103,24 +108,13 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .glass-panel {
-                background: rgba(15, 23, 42, 0.65);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-                border-left: 1px solid rgba(255, 255, 255, 0.08);
-                border-right: 1px solid rgba(255, 255, 255, 0.03);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                @apply bg-glass-bg backdrop-blur-md border-t border-l border-[rgba(255,255,255,0.05)];
             }
             .glow-active {
-                box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
-            }
-            .glow-hover {
-                transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             }
             .glow-hover:hover {
-                box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
-                border-color: rgba(76, 215, 246, 0.4);
-                transform: translateY(-2px);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             }
             .cyan-line-top {
                 position: relative;
@@ -132,7 +126,7 @@
                 left: 0;
                 right: 0;
                 height: 2px;
-                background: #4cd7f6;
+                @apply bg-primary;
             }
             .ambient-flare {
                 position: absolute;
@@ -157,53 +151,78 @@
                 border-radius: 2px;
             }
         }
+        
+        @layer base {
+            html, body {
+                max-width: 100vw;
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden pt-20 selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col justify-between">
-    
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden pt-20 selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col justify-between">
+
     <!-- Top Global Navbar -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-border-accent shadow-sm" id="global-nav">
-        <div class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto h-20">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-border-accent shadow-sm"
+        id="global-nav">
+        <div
+            class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto h-20">
             <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Rendercept Home">
-                <img alt="Rendercept Logo" class="h-8 w-8 object-contain rounded-md bg-surface-container border border-surface-variant group-hover:border-primary/50 transition-colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
-                <span class="font-headline-md text-2xl font-bold text-primary tracking-tight group-hover:text-primary-fixed transition-colors">Rendercept</span>
+                <img alt="Rendercept Logo"
+                    class="h-8 w-8 object-contain rounded-md bg-surface-container border border-surface-variant group-hover:border-primary/50 transition-colors"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                <span
+                    class="font-headline-md text-2xl font-bold text-primary tracking-tight group-hover:text-primary-fixed transition-colors">Rendercept</span>
             </a>
 
             <!-- Desktop Nav Links -->
             <div class="hidden md:flex items-center gap-8 font-body-md text-sm lg:text-base">
-                <a class="nav-link-active font-medium transition-colors duration-200" href="index.html">Home</a>
-                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+                <a class="nav-link-active font-medium transition-colors duration-200" href="services.html">Services</a>
                 <a class="text-text-dim hover:text-primary transition-colors duration-200" href="work.html">Work</a>
                 <a class="text-text-dim hover:text-primary transition-colors duration-200" href="about.html">About</a>
-                <a class="text-text-dim hover:text-primary transition-colors duration-200" href="contact.html">Contact</a>
+                <a class="text-text-dim hover:text-primary transition-colors duration-200"
+                    href="contact.html">Contact</a>
             </div>
 
             <!-- Header Action CTA -->
             <div class="hidden md:flex items-center gap-4">
-                <a class="bg-primary text-black px-5 py-2.5 rounded font-label-md text-xs tracking-wider uppercase hover:bg-primary-fixed-dim transition-all duration-200 font-bold active:scale-95 shadow-[0_0_15px_rgba(76,215,246,0.25)] hover:shadow-[0_0_20px_rgba(76,215,246,0.45)] inline-flex items-center gap-1.5" href="contact.html">
+                <a class="bg-primary text-black px-5 py-2.5 rounded font-label-md text-xs tracking-wider uppercase hover:bg-primary-fixed-dim transition-all duration-200 font-bold active:scale-95 shadow-[0_0_15px_rgba(76,215,246,0.25)] hover:shadow-[0_0_20px_rgba(76,215,246,0.45)] inline-flex items-center gap-1.5"
+                    href="contact.html">
                     <span>Start Project</span>
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none focus:ring-1 focus:ring-primary rounded" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <button id="mobile-menu-btn"
+                class="md:hidden text-primary p-2 focus:outline-none focus:ring-1 focus:ring-primary rounded"
+                aria-label="Toggle Navigation Menu" aria-expanded="false">
                 <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
             </button>
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobile-drawer" class="hidden md:hidden bg-surface-dim/95 backdrop-blur-xl border-b border-surface-variant px-6 py-6 transition-all duration-300">
+        <div id="mobile-drawer"
+            class="hidden md:hidden bg-surface-dim/95 backdrop-blur-xl border-b border-surface-variant px-6 py-6 transition-all duration-300">
             <div class="flex flex-col space-y-4">
-                <a class="text-primary font-semibold text-lg py-2 border-l-2 border-primary pl-3 bg-primary/5 rounded-r" href="index.html">Home</a>
-                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="services.html">Services</a>
-                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="work.html">Work</a>
-                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="about.html">About</a>
-                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors" href="contact.html">Contact</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors"
+                    href="index.html">Home</a>
+                <a class="text-primary font-semibold text-lg py-2 border-l-2 border-primary pl-3 bg-primary/5 rounded-r"
+                    href="services.html">Services</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors"
+                    href="work.html">Work</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors"
+                    href="about.html">About</a>
+                <a class="text-text-dim hover:text-primary text-lg py-2 pl-3 transition-colors"
+                    href="contact.html">Contact</a>
                 <div class="pt-4 border-t border-surface-variant flex flex-col gap-3">
-                    <a class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-colors" href="contact.html">
+                    <a class="w-full text-center bg-primary text-black py-3 rounded font-label-md text-sm font-bold uppercase tracking-wider hover:bg-primary-fixed transition-colors"
+                        href="contact.html">
                         Start a Project
                     </a>
                 </div>
@@ -213,60 +232,89 @@
 
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-8 md:px-margin-desktop py-20 max-w-container-max mx-auto text-center overflow-hidden">
+        <section
+            class="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-8 md:px-margin-desktop py-20 max-w-container-max mx-auto text-center overflow-hidden">
             <!-- Decorative ambient cyan/indigo gradient flares -->
             <div class="ambient-flare top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10"></div>
             <div class="ambient-flare bottom-1/4 right-1/4 w-[450px] h-[450px] bg-secondary-container/20"></div>
-            <div class="ambient-flare top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary-container/10"></div>
-            
+            <div
+                class="ambient-flare top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary-container/10">
+            </div>
+
             <!-- Technical Grid Background -->
-            <div class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none -z-10"></div>
+            <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none -z-10">
+            </div>
 
             <div class="relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/90 border border-border-accent mb-8 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/90 border border-border-accent mb-8 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                     <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    <span class="font-label-sm text-xs text-primary uppercase tracking-wider font-semibold">Synthetic Velocity • v2.6 Release</span>
+                    <span class="font-label-sm text-xs text-primary uppercase tracking-wider font-semibold">Synthetic
+                        Velocity • v2.6 Release</span>
                 </div>
-                
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-[72px] text-on-surface font-bold mb-6 max-w-5xl tracking-tight leading-[1.1]">
-                    We Build <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#84e5f9] to-secondary">Blazingly Fast</span> Web Experiences.
+
+                <h1
+                    class="font-display text-4xl sm:text-6xl lg:text-[72px] text-on-surface font-bold mb-6 max-w-5xl tracking-tight leading-[1.1]">
+                    We Build <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#84e5f9] to-secondary">Blazingly
+                        Fast</span> Web Experiences.
                 </h1>
-                
+
                 <p class="font-body-lg text-lg sm:text-xl text-text-dim max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Custom static sites and scalable web architectures built for sub-second speeds, flawless Core Web Vitals, and maximized conversion rates. Designed for high-growth tech startups and clinical enterprises.
+                    Custom static sites and scalable web architectures built for sub-second speeds, flawless Core Web
+                    Vitals, and maximized conversion rates. Designed for high-growth tech startups and clinical
+                    enterprises.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center">
-                    <a class="w-full sm:w-auto bg-primary text-black px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary-fixed transition-all duration-200 active:scale-95 inline-flex justify-center items-center gap-2 group shadow-[0_0_20px_rgba(76,215,246,0.35)] hover:shadow-[0_0_30px_rgba(76,215,246,0.6)]" href="contact.html">
+                    <a class="w-full sm:w-auto bg-primary text-black px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary-fixed transition-all duration-200 active:scale-95 inline-flex justify-center items-center gap-2 group shadow-[0_0_20px_rgba(76,215,246,0.35)] hover:shadow-[0_0_30px_rgba(76,215,246,0.6)]"
+                        href="contact.html">
                         <span>Start a Project</span>
-                        <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <span
+                            class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
-                    <a class="w-full sm:w-auto bg-surface-container/60 border border-border-accent text-primary px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary/10 hover:border-primary transition-all duration-200 active:scale-95 inline-flex justify-center items-center gap-2" href="work.html">
+                    <a class="w-full sm:w-auto bg-surface-container/60 border border-border-accent text-primary px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary/10 hover:border-primary transition-all duration-200 active:scale-95 inline-flex justify-center items-center gap-2"
+                        href="work.html">
                         <span>View Our Work</span>
                         <span class="material-symbols-outlined text-base">visibility</span>
                     </a>
                 </div>
 
                 <!-- Interactive Terminal Mockup -->
-                <div class="mt-16 sm:mt-20 w-full max-w-3xl mx-auto glass-panel rounded-lg overflow-hidden border border-surface-variant shadow-2xl relative text-left">
-                    <div class="flex items-center justify-between px-4 py-3 bg-surface-container border-b border-surface-variant">
+                <div
+                    class="mt-16 sm:mt-20 w-full max-w-3xl mx-auto glass-panel rounded-lg overflow-hidden border border-surface-variant shadow-2xl relative text-left">
+                    <div
+                        class="flex items-center justify-between px-4 py-3 bg-surface-container border-b border-surface-variant">
                         <div class="flex items-center gap-2">
                             <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                            <span class="ml-3 font-label-sm text-xs text-text-dim">deploy.sh — rendercept-edge-optimizer</span>
+                            <span class="ml-3 font-label-sm text-xs text-text-dim">deploy.sh —
+                                rendercept-edge-optimizer</span>
                         </div>
-                        <span class="font-label-sm text-[11px] text-primary/80 uppercase tracking-widest hidden sm:inline">Edge SLA: 100/100</span>
+                        <span
+                            class="font-label-sm text-[11px] text-primary/80 uppercase tracking-widest hidden sm:inline">Edge
+                            SLA: 100/100</span>
                     </div>
-                    <div class="p-6 font-label-md text-xs sm:text-sm text-text-dim space-y-2 bg-[#0a0f1d] leading-relaxed overflow-x-auto">
-                        <p><span class="text-primary font-bold">~/rendercept</span> $ rendercept build --target=production --zero-bloat</p>
+                    <div
+                        class="p-6 font-label-md text-xs sm:text-sm text-text-dim space-y-2 bg-[#0a0f1d] leading-relaxed overflow-x-auto">
+                        <p><span class="text-primary font-bold">~/rendercept</span> $ rendercept build
+                            --target=production --zero-bloat</p>
                         <p class="text-surface-variant">&gt; Analyzing static bundles and asset tree...</p>
                         <p class="text-emerald-400">✓ 48 static HTML pages pre-rendered at edge</p>
-                        <p class="text-surface-variant">dist/index.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.78 kB │ gzip: 0.38 kB (SSR Ready)</p>
-                        <p class="text-surface-variant">dist/assets/app.css &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.10 kB │ gzip: 1.25 kB</p>
-                        <p class="text-secondary">dist/edge/worker.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.40 kB │ gzip: 6.20 kB (Global CDN)</p>
+                        <p class="text-surface-variant">dist/index.html
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.78
+                            kB │ gzip: 0.38 kB (SSR Ready)</p>
+                        <p class="text-surface-variant">dist/assets/app.css
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.10
+                            kB │ gzip: 1.25 kB</p>
+                        <p class="text-secondary">dist/edge/worker.js
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.40
+                            kB │ gzip: 6.20 kB (Global CDN)</p>
                         <div class="pt-2 border-t border-surface-variant/50 flex items-center justify-between">
-                            <span class="text-emerald-400 font-bold">✓ Lighthouse Performance: 100/100 (LCP 0.38s • CLS 0.00 • FID 12ms)</span>
+                            <span class="text-emerald-400 font-bold">✓ Lighthouse Performance: 100/100 (LCP 0.38s • CLS
+                                0.00 • FID 12ms)</span>
                             <span class="text-primary text-[11px]">built in 142ms</span>
                         </div>
                     </div>
@@ -275,81 +323,103 @@
         </section>
 
         <!-- Core Capabilities Section (Services Preview) -->
-        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim relative border-t border-surface-variant" id="services">
+        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim relative border-t border-surface-variant"
+            id="services">
             <!-- Ambient flare -->
             <div class="ambient-flare top-1/2 right-10 w-[400px] h-[400px] bg-primary/10"></div>
-            
+
             <div class="max-w-container-max mx-auto relative z-10">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div>
-                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <div
+                            class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
                             <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                             Specialized Engineering
                         </div>
-                        <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface">Core Capabilities</h2>
+                        <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface">Core Capabilities
+                        </h2>
                         <p class="font-body-lg text-base sm:text-lg text-text-dim max-w-2xl mt-3">
-                            Engineering solutions focused on extreme architecture speed, conversion ergonomics, and modern standards.
+                            Engineering solutions focused on extreme architecture speed, conversion ergonomics, and
+                            modern standards.
                         </p>
                     </div>
-                    <a href="services.html" class="inline-flex items-center gap-2 text-primary font-label-md text-sm font-semibold hover:text-primary-fixed transition-colors group">
+                    <a href="services.html"
+                        class="inline-flex items-center gap-2 text-primary font-label-md text-sm font-semibold hover:text-primary-fixed transition-colors group">
                         <span>Explore Full Service Breakdown</span>
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <span
+                            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                     <!-- Service 1 -->
-                    <div class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
+                    <div
+                        class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
+                            <div
+                                class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
                                 <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
                             </div>
-                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
                                 Ultra-Fast Static Sites
                             </h3>
                             <p class="font-body-md text-text-dim leading-relaxed mb-6">
-                                Blazing speed architectures utilizing modern Jamstack principles. Mobile-first, SEO-ready with instant perceived load times and multi-region edge CDN delivery.
+                                Blazing speed architectures utilizing modern Jamstack principles. Mobile-first,
+                                SEO-ready with instant perceived load times and multi-region edge CDN delivery.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
+                        <div
+                            class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
                             <span>Zero-Latency Jamstack</span>
                             <a href="services.html" class="hover:underline flex items-center gap-1">Details &rarr;</a>
                         </div>
                     </div>
 
                     <!-- Service 2 -->
-                    <div class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
+                    <div
+                        class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
-                                <span class="material-symbols-outlined text-primary text-3xl">published_with_changes</span>
+                            <div
+                                class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-primary text-3xl">published_with_changes</span>
                             </div>
-                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
                                 Complete Modernization
                             </h3>
                             <p class="font-body-md text-text-dim leading-relaxed mb-6">
-                                Rescuing outdated, bloated websites. We eliminate high drop-off rates, fix responsive breakage, and rebuild your frontend on lean, maintainable frameworks.
+                                Rescuing outdated, bloated websites. We eliminate high drop-off rates, fix responsive
+                                breakage, and rebuild your frontend on lean, maintainable frameworks.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
+                        <div
+                            class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
                             <span>Conversion Overhaul</span>
                             <a href="services.html" class="hover:underline flex items-center gap-1">Details &rarr;</a>
                         </div>
                     </div>
 
                     <!-- Service 3 -->
-                    <div class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
+                    <div
+                        class="glass-panel cyan-line-top p-8 rounded-lg glow-hover flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
+                            <div
+                                class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center mb-6 border border-surface-variant group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors">
                                 <span class="material-symbols-outlined text-primary text-3xl">speed</span>
                             </div>
-                            <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-2xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
                                 Core Web Vitals Audit
                             </h3>
                             <p class="font-body-md text-text-dim leading-relaxed mb-6">
-                                Deep code-level profiling, sub-second LCP optimization, asset tree shaking, and CDN edge tuning to lock in 99-100 scores across desktop and mobile.
+                                Deep code-level profiling, sub-second LCP optimization, asset tree shaking, and CDN edge
+                                tuning to lock in 99-100 scores across desktop and mobile.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
+                        <div
+                            class="pt-4 border-t border-surface-variant/60 flex items-center justify-between font-label-sm text-xs text-primary">
                             <span>Sub-Second TTFB</span>
                             <a href="services.html" class="hover:underline flex items-center gap-1">Details &rarr;</a>
                         </div>
@@ -366,78 +436,108 @@
 
             <div class="relative z-10">
                 <div class="mb-16">
-                    <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                    <div
+                        class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
                         <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                         Architectural Advantage
                     </div>
-                    <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-4">Synthetic Velocity</h2>
+                    <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-4">Synthetic Velocity
+                    </h2>
                     <p class="font-body-lg text-base sm:text-lg text-text-dim max-w-2xl">
-                        The technical differentiators that define our infrastructure and deliver unparalleled return on investment.
+                        The technical differentiators that define our infrastructure and deliver unparalleled return on
+                        investment.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
                     <!-- Bento Item 1: Big Feature (Edge Compute) -->
-                    <div class="md:col-span-8 glass-panel rounded-xl p-8 lg:p-10 relative overflow-hidden glow-hover flex flex-col justify-between group min-h-[300px]">
-                        <div class="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-primary/15 via-primary/5 to-transparent pointer-events-none"></div>
+                    <div
+                        class="md:col-span-8 glass-panel rounded-xl p-8 lg:p-10 relative overflow-hidden glow-hover flex flex-col justify-between group min-h-[300px]">
+                        <div
+                            class="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-primary/15 via-primary/5 to-transparent pointer-events-none">
+                        </div>
                         <div class="flex items-center justify-between relative z-10">
-                            <span class="material-symbols-outlined text-primary text-4xl p-3 bg-surface-container rounded-lg border border-surface-variant group-hover:border-primary/50 transition-colors">dns</span>
-                            <span class="font-label-sm text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">Edge CDN 300+ PoPs</span>
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl p-3 bg-surface-container rounded-lg border border-surface-variant group-hover:border-primary/50 transition-colors">dns</span>
+                            <span
+                                class="font-label-sm text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">Edge
+                                CDN 300+ PoPs</span>
                         </div>
                         <div class="relative z-10 mt-8">
-                            <h3 class="font-headline-md text-2xl lg:text-3xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-2xl lg:text-3xl font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
                                 Zero-Latency Edge Infrastructure
                             </h3>
                             <p class="font-body-md text-text-dim max-w-xl leading-relaxed text-sm sm:text-base">
-                                We deploy compute and static assets closest to your users globally. Drastically eliminating time-to-first-byte (TTFB) and ensuring instantaneous page rendering regardless of geographical location.
+                                We deploy compute and static assets closest to your users globally. Drastically
+                                eliminating time-to-first-byte (TTFB) and ensuring instantaneous page rendering
+                                regardless of geographical location.
                             </p>
                         </div>
                     </div>
 
                     <!-- Bento Item 2: Perfect Metric (Lighthouse 100) -->
-                    <div class="md:col-span-4 bg-surface-container/90 border border-surface-variant rounded-xl p-8 flex flex-col items-center justify-center text-center glow-hover min-h-[300px] relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+                    <div
+                        class="md:col-span-4 bg-surface-container/90 border border-surface-variant rounded-xl p-8 flex flex-col items-center justify-center text-center glow-hover min-h-[300px] relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none">
+                        </div>
                         <div class="relative z-10 w-full">
-                            <div class="font-display text-6xl lg:text-7xl text-primary font-bold mb-1 tracking-tighter">100</div>
-                            <div class="font-label-md text-xs sm:text-sm text-on-surface font-semibold uppercase tracking-widest">
+                            <div class="font-display text-6xl lg:text-7xl text-primary font-bold mb-1 tracking-tighter">
+                                100</div>
+                            <div
+                                class="font-label-md text-xs sm:text-sm text-on-surface font-semibold uppercase tracking-widest">
                                 Target Lighthouse Score
                             </div>
                             <div class="w-full bg-surface-variant h-2 mt-6 rounded-full overflow-hidden p-[1px]">
-                                <div class="bg-gradient-to-r from-primary to-secondary h-full w-full rounded-full animate-pulse"></div>
+                                <div
+                                    class="bg-gradient-to-r from-primary to-secondary h-full w-full rounded-full animate-pulse">
+                                </div>
                             </div>
-                            <p class="font-label-sm text-[11px] text-text-dim mt-4">Performance • Accessibility • Best Practices • SEO</p>
+                            <p class="font-label-sm text-[11px] text-text-dim mt-4">Performance • Accessibility • Best
+                                Practices • SEO</p>
                         </div>
                     </div>
 
                     <!-- Bento Item 3: SEO Architecture -->
-                    <div class="md:col-span-5 glass-panel rounded-xl p-8 relative overflow-hidden glow-hover flex flex-col justify-between group min-h-[260px]">
+                    <div
+                        class="md:col-span-5 glass-panel rounded-xl p-8 relative overflow-hidden glow-hover flex flex-col justify-between group min-h-[260px]">
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-3xl">travel_explore</span>
-                            <span class="font-label-sm text-xs text-text-dim uppercase tracking-wider">Organic Reach</span>
+                            <span class="font-label-sm text-xs text-text-dim uppercase tracking-wider">Organic
+                                Reach</span>
                         </div>
                         <div class="relative z-10 mt-6">
-                            <h3 class="font-headline-md text-xl lg:text-2xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-xl lg:text-2xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
                                 SEO-Optimized Rendering
                             </h3>
                             <p class="font-body-md text-text-dim text-sm sm:text-base leading-relaxed">
-                                Zero-client-waterfall architectures structured for instant search engine indexing, rich schema graphs, and optimized social previews.
+                                Zero-client-waterfall architectures structured for instant search engine indexing, rich
+                                schema graphs, and optimized social previews.
                             </p>
                         </div>
                     </div>
 
                     <!-- Bento Item 4: Developer-First Codebase -->
-                    <div class="md:col-span-7 glass-panel rounded-xl p-0 relative overflow-hidden glow-hover flex flex-col md:flex-row items-stretch group min-h-[260px]">
+                    <div
+                        class="md:col-span-7 glass-panel rounded-xl p-0 relative overflow-hidden glow-hover flex flex-col md:flex-row items-stretch group min-h-[260px]">
                         <div class="p-8 md:w-1/2 z-10 relative flex flex-col justify-center">
                             <span class="material-symbols-outlined text-primary text-3xl mb-3">code</span>
-                            <h3 class="font-headline-md text-xl lg:text-2xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-xl lg:text-2xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
                                 Clean, Modular Repos
                             </h3>
                             <p class="font-body-md text-text-dim text-sm sm:text-base leading-relaxed">
-                                Zero legacy spaghetti. Fully typed, documented, and standard-compliant code that your team can maintain effortlessly.
+                                Zero legacy spaghetti. Fully typed, documented, and standard-compliant code that your
+                                team can maintain effortlessly.
                             </p>
                         </div>
-                        <div class="md:w-1/2 bg-[#090d18] p-5 text-xs font-label-sm text-surface-variant overflow-hidden relative flex items-center border-t md:border-t-0 md:border-l border-surface-variant">
-                            <div class="absolute inset-0 bg-gradient-to-r from-[#090d18]/80 via-transparent to-[#090d18]/40 pointer-events-none z-10"></div>
+                        <div
+                            class="md:w-1/2 bg-[#090d18] p-5 text-xs font-label-sm text-surface-variant overflow-hidden relative flex items-center border-t md:border-t-0 md:border-l border-surface-variant">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-[#090d18]/80 via-transparent to-[#090d18]/40 pointer-events-none z-10">
+                            </div>
                             <pre class="text-[11px] leading-relaxed text-text-dim/80"><code class="language-javascript"><span class="text-primary">export const</span> <span class="text-secondary">config</span> = {
   <span class="text-on-surface">runtime</span>: <span class="text-emerald-400">'edge'</span>,
   <span class="text-on-surface">revalidate</span>: <span class="text-tertiary">3600</span>,
@@ -454,97 +554,142 @@
         </section>
 
         <!-- Selected Works Section -->
-        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim border-t border-surface-variant relative" id="portfolio">
+        <section class="py-24 px-4 sm:px-8 md:px-margin-desktop bg-surface-dim border-t border-surface-variant relative"
+            id="portfolio">
             <!-- Ambient flare -->
             <div class="ambient-flare top-1/4 left-1/3 w-[600px] h-[600px] bg-primary/10"></div>
 
             <div class="max-w-container-max mx-auto relative z-10">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div>
-                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <div
+                            class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
                             <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                             Proven Results
                         </div>
-                        <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-3">Selected Works</h2>
+                        <h2 class="font-headline-lg text-3xl sm:text-5xl font-bold text-on-surface mb-3">Selected Works
+                        </h2>
                         <p class="font-body-lg text-base sm:text-lg text-text-dim max-w-2xl">
                             Recent technical deployments delivering measurable speed and business growth.
                         </p>
                     </div>
-                    <a class="inline-flex items-center gap-2 text-primary font-label-md text-sm font-semibold hover:text-primary-fixed transition-colors group" href="work.html">
+                    <a class="inline-flex items-center gap-2 text-primary font-label-md text-sm font-semibold hover:text-primary-fixed transition-colors group"
+                        href="work.html">
                         <span>View All Case Studies</span>
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <span
+                            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-                    <a href="work.html" class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
-                        <div class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
-                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvTaOu9G73UWqyWqgXdNu-jalARztUzCdt-vnypSsicAiMijEbzJ-6h929ezX7t5r45PkF1UXSU5y9B7SdUcgdmAuFS9o3SudQpxFbR0Bz2oq5v055R7g_W4Ar2coTBis-bagq88E6eLJ5j2E4DZDDpvpwfWMVnCBEqzgZ_UsXuXhkHTOLjK6m9hpxn-KiZNs2IqjDHQCz0EUnKPM98xPnMNQgN6_EIY4yVlZNEsY5OAeB5JipzMgl')"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90"></div>
-                            <div class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
+                    <a href="work.html"
+                        class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
+                        <div
+                            class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
+                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvTaOu9G73UWqyWqgXdNu-jalARztUzCdt-vnypSsicAiMijEbzJ-6h929ezX7t5r45PkF1UXSU5y9B7SdUcgdmAuFS9o3SudQpxFbR0Bz2oq5v055R7g_W4Ar2coTBis-bagq88E6eLJ5j2E4DZDDpvpwfWMVnCBEqzgZ_UsXuXhkHTOLjK6m9hpxn-KiZNs2IqjDHQCz0EUnKPM98xPnMNQgN6_EIY4yVlZNEsY5OAeB5JipzMgl')">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90">
+                            </div>
+                            <div
+                                class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
                                 99/100 Mobile Speed
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
                                 Nexus Real-Time Analytics
                             </h3>
                             <p class="font-body-md text-text-dim text-sm mb-4 line-clamp-2">
-                                High-speed analytics dashboard handling millions of telemetry events with zero perceived UI lag.
+                                High-speed analytics dashboard handling millions of telemetry events with zero perceived
+                                UI lag.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">React</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Tailwind</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">Sub-Second LCP</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">React</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Tailwind</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">Sub-Second
+                                    LCP</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Project 2 -->
-                    <a href="work.html" class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
-                        <div class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
-                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0KbCbEdmzvhvV5ZsvWvHTwe1UeMD4RKY5EeouatpWGP8HyJMqfU62ebse2wYoN73nvZ0A9BC1-8mk7xpbQ5Xh0wRHnU5boH9AF2D5P49zwGtQsnTUUt5u0r5pi7-AFHP1WPYBEnjyMAwzgjS7fR11tFqUa-1s8n_6_7PtuxDMLoC4TrRJAg9Xl6Nrt2jwvjkCh74s2vXByJnlN4o9BdDauWurLhPrz_YgpRPHx72LbccfXGXPJz1I')"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90"></div>
-                            <div class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
+                    <a href="work.html"
+                        class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
+                        <div
+                            class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
+                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0KbCbEdmzvhvV5ZsvWvHTwe1UeMD4RKY5EeouatpWGP8HyJMqfU62ebse2wYoN73nvZ0A9BC1-8mk7xpbQ5Xh0wRHnU5boH9AF2D5P49zwGtQsnTUUt5u0r5pi7-AFHP1WPYBEnjyMAwzgjS7fR11tFqUa-1s8n_6_7PtuxDMLoC4TrRJAg9Xl6Nrt2jwvjkCh74s2vXByJnlN4o9BdDauWurLhPrz_YgpRPHx72LbccfXGXPJz1I')">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90">
+                            </div>
+                            <div
+                                class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
                                 +38% Conversions
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
                                 Aether Commerce Storefront
                             </h3>
                             <p class="font-body-md text-text-dim text-sm mb-4 line-clamp-2">
-                                Headless e-commerce architecture delivering instant product catalog filtering and checkout speed.
+                                Headless e-commerce architecture delivering instant product catalog filtering and
+                                checkout speed.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Next.js</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Edge CDN</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">0.4s Checkout</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Next.js</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Edge
+                                    CDN</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">0.4s
+                                    Checkout</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Project 3 -->
-                    <a href="work.html" class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
-                        <div class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
-                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeJ6d2_BH7gS86ZzTonJQ7ob-nvptnkiw6JMaT1aocWDns0QKstWLXFdJY2VuKmtlk95rJp0TgdsXzXCfG9KP0TtKRpZ1GK9FAroNpkcGdjelPQez2oczC4p44tVmgDEwFqIetOUUKegAbV_VPVML3vdqLz0OHgdOPbkkJfTAXMM23vwILPk5pqhUFgqFClTalpondmgshZTaN08MOHUXge-HiQAZT566ZLgvEobTN7Q0DAnxoc9ss')"></div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90"></div>
-                            <div class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
+                    <a href="work.html"
+                        class="group block glass-panel rounded-xl overflow-hidden glow-hover border border-surface-variant hover:border-primary/50 transition-all">
+                        <div
+                            class="relative w-full aspect-video overflow-hidden bg-surface-container border-b border-surface-variant">
+                            <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeJ6d2_BH7gS86ZzTonJQ7ob-nvptnkiw6JMaT1aocWDns0QKstWLXFdJY2VuKmtlk95rJp0TgdsXzXCfG9KP0TtKRpZ1GK9FAroNpkcGdjelPQez2oczC4p44tVmgDEwFqIetOUUKegAbV_VPVML3vdqLz0OHgdOPbkkJfTAXMM23vwILPk5pqhUFgqFClTalpondmgshZTaN08MOHUXge-HiQAZT566ZLgvEobTN7Q0DAnxoc9ss')">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-90">
+                            </div>
+                            <div
+                                class="absolute top-3 right-3 bg-surface-dim/90 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30 font-label-sm text-[11px] text-primary">
                                 140ms Global TTFB
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
+                            <h3
+                                class="font-headline-md text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
                                 Volt Protocol Docs
                             </h3>
                             <p class="font-body-md text-text-dim text-sm mb-4 line-clamp-2">
-                                High-density technical documentation portal with instant client-side search and interactive sandboxes.
+                                High-density technical documentation portal with instant client-side search and
+                                interactive sandboxes.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Jamstack</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">TypeScript</span>
-                                <span class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">100 Lighthouse</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">Jamstack</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-text-dim border border-surface-variant">TypeScript</span>
+                                <span
+                                    class="font-label-sm text-[11px] px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20">100
+                                    Lighthouse</span>
                             </div>
                         </div>
                     </a>
@@ -554,48 +699,62 @@
 
         <!-- Direct CTA / Contact Teaser -->
         <section class="py-24 px-4 sm:px-8 md:px-margin-desktop max-w-container-max mx-auto relative" id="contact">
-            <div class="glass-panel p-8 sm:p-12 lg:p-16 rounded-2xl border border-surface-variant relative overflow-hidden glow-active">
+            <div
+                class="glass-panel p-8 sm:p-12 lg:p-16 rounded-2xl border border-surface-variant relative overflow-hidden glow-active">
                 <div class="ambient-flare -top-20 -right-20 w-[450px] h-[450px] bg-primary/20"></div>
                 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-7">
-                        <div class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
+                        <div
+                            class="inline-flex items-center gap-2 font-label-sm text-xs text-primary uppercase tracking-wider mb-3">
                             <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
                             Engineering Capacity Available
                         </div>
                         <h2 class="font-display text-3xl sm:text-5xl font-bold text-on-surface mb-4 leading-tight">
-                            Ready to Deploy <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Synthetic Velocity</span>?
+                            Ready to Deploy <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Synthetic
+                                Velocity</span>?
                         </h2>
                         <p class="font-body-lg text-base sm:text-lg text-text-dim max-w-xl mb-8 leading-relaxed">
-                            Upgrade your digital architecture today. We offer clear fixed-scope estimates, direct access to principal engineers, and guaranteed under 24-hour response times.
+                            Upgrade your digital architecture today. We offer clear fixed-scope estimates, direct access
+                            to principal engineers, and guaranteed under 24-hour response times.
                         </p>
                         <div class="flex flex-wrap items-center gap-6">
-                            <a href="contact.html" class="bg-primary text-black px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary-fixed-dim transition-all duration-200 active:scale-95 inline-flex items-center gap-2 shadow-[0_0_20px_rgba(76,215,246,0.3)]">
+                            <a href="contact.html"
+                                class="bg-primary text-black px-8 py-4 rounded font-label-md text-sm font-bold hover:bg-primary-fixed-dim transition-all duration-200 active:scale-95 inline-flex items-center gap-2 shadow-[0_0_20px_rgba(76,215,246,0.3)]">
                                 <span>Initiate Project Consultation</span>
                                 <span class="material-symbols-outlined text-base">arrow_forward</span>
                             </a>
                             <div class="flex items-center gap-3 text-text-dim font-label-sm text-xs">
                                 <span class="material-symbols-outlined text-primary text-base">mail</span>
-                                <a href="mailto:siddhant@rendercept.com" class="hover:text-primary transition-colors">siddhant@rendercept.com</a>
+                                <a href="mailto:siddhant@rendercept.com"
+                                    class="hover:text-primary transition-colors">siddhant@rendercept.com</a>
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 bg-surface-container/80 border border-surface-variant rounded-xl p-6 space-y-4">
+                    <div
+                        class="lg:col-span-5 bg-surface-container/80 border border-surface-variant rounded-xl p-6 space-y-4">
                         <h4 class="font-headline-md text-base font-bold text-on-surface flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-lg">verified</span>
                             The Rendercept Guarantee
                         </h4>
                         <ul class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
                             <li class="flex items-start gap-2.5">
-                                <span class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
-                                <span><strong>Guaranteed 95+ Score:</strong> Perfect Core Web Vitals audited on physical mobile devices.</span>
+                                <span
+                                    class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
+                                <span><strong>Guaranteed 95+ Score:</strong> Perfect Core Web Vitals audited on physical
+                                    mobile devices.</span>
                             </li>
                             <li class="flex items-start gap-2.5">
-                                <span class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
-                                <span><strong>Zero Third-Party Bloat:</strong> Clean semantic HTML, CSS, and minimal runtime dependencies.</span>
+                                <span
+                                    class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
+                                <span><strong>Zero Third-Party Bloat:</strong> Clean semantic HTML, CSS, and minimal
+                                    runtime dependencies.</span>
                             </li>
                             <li class="flex items-start gap-2.5">
-                                <span class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
-                                <span><strong>Complete Ownership:</strong> Full Git repository handover with clean documentation.</span>
+                                <span
+                                    class="material-symbols-outlined text-emerald-400 text-base mt-0.5">check_circle</span>
+                                <span><strong>Complete Ownership:</strong> Full Git repository handover with clean
+                                    documentation.</span>
                             </li>
                         </ul>
                     </div>
@@ -611,13 +770,17 @@
                 <!-- Col 1: Brand Info -->
                 <div class="md:col-span-1 space-y-4">
                     <a href="index.html" class="flex items-center gap-3 group">
-                        <img alt="Rendercept Logo" class="h-7 w-7 object-contain rounded bg-surface-container opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
+                        <img alt="Rendercept Logo"
+                            class="h-7 w-7 object-contain rounded bg-surface-container opacity-80 group-hover:opacity-100 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlK9YqvWTqcefPVlyVWF4vTF00YVC6fllSvbF30k5eaFiBdGMO4t7puer3IPxnomLZKVIkTLX7Nu04xMaIflINCLbdx9s8SPxnCEI77d_uONLIOD7ap_4O_ATXFwf_SizRJa1lkhfY6V35Qyzz0sqqku90GUSHR0eNXffd_EYWqbcXHaUlBKzVa24vYGbPCFxfZaJHQr0OS4lkK0mft_67lQeOsZh7Wi0qXoj1fTRta2oT-IBXemln" />
                         <span class="font-headline-md text-xl font-bold text-primary">Rendercept</span>
                     </a>
                     <p class="font-body-md text-xs sm:text-sm text-text-dim leading-relaxed">
-                        High-performance static site engineering and scalable web architectures built with developer precision.
+                        High-performance static site engineering and scalable web architectures built with developer
+                        precision.
                     </p>
-                    <div class="inline-flex items-center gap-2 font-label-sm text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full">
+                    <div
+                        class="inline-flex items-center gap-2 font-label-sm text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1 rounded-full">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                         Edge Infrastructure: 99.99%
                     </div>
@@ -625,11 +788,13 @@
 
                 <!-- Col 2: Navigation -->
                 <div>
-                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Navigation</h5>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">
+                        Navigation</h5>
                     <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
                         <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
                         <li><a href="services.html" class="hover:text-primary transition-colors">Services</a></li>
-                        <li><a href="work.html" class="hover:text-primary transition-colors">Work & Case Studies</a></li>
+                        <li><a href="work.html" class="hover:text-primary transition-colors">Work & Case Studies</a>
+                        </li>
                         <li><a href="about.html" class="hover:text-primary transition-colors">About & Standards</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
                         <li><a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
@@ -638,19 +803,26 @@
 
                 <!-- Col 3: Capabilities -->
                 <div>
-                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Capabilities</h5>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">
+                        Capabilities</h5>
                     <ul class="space-y-2.5 font-body-md text-sm text-text-dim">
-                        <li><a href="services.html#ultra-fast" class="hover:text-primary transition-colors">Ultra-Fast Static Sites</a></li>
-                        <li><a href="services.html#modernization" class="hover:text-primary transition-colors">Website Modernization</a></li>
-                        <li><a href="services.html#speed" class="hover:text-primary transition-colors">Core Web Vitals Audit</a></li>
-                        <li><a href="services.html#capabilities" class="hover:text-primary transition-colors">Technical Capabilities</a></li>
-                        <li><a href="work.html#before-after" class="hover:text-primary transition-colors">Speed Comparisons</a></li>
+                        <li><a href="services.html#ultra-fast" class="hover:text-primary transition-colors">Ultra-Fast
+                                Static Sites</a></li>
+                        <li><a href="services.html#modernization" class="hover:text-primary transition-colors">Website
+                                Modernization</a></li>
+                        <li><a href="services.html#speed" class="hover:text-primary transition-colors">Core Web Vitals
+                                Audit</a></li>
+                        <li><a href="services.html#capabilities" class="hover:text-primary transition-colors">Technical
+                                Capabilities</a></li>
+                        <li><a href="work.html#before-after" class="hover:text-primary transition-colors">Speed
+                                Comparisons</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 4: Contact & SLA -->
                 <div>
-                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">Engineering SLA</h5>
+                    <h5 class="font-label-sm text-xs font-semibold text-on-surface uppercase tracking-wider mb-4">
+                        Engineering SLA</h5>
                     <div class="space-y-3 font-body-md text-xs sm:text-sm text-text-dim">
                         <p class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-base">schedule</span>
@@ -658,7 +830,8 @@
                         </p>
                         <p class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-base">mail</span>
-                            <a href="mailto:siddhant@rendercept.com" class="hover:text-primary text-on-surface font-label-md text-xs transition-colors">siddhant@rendercept.com</a>
+                            <a href="mailto:siddhant@rendercept.com"
+                                class="hover:text-primary text-on-surface font-label-md text-xs transition-colors">siddhant@rendercept.com</a>
                         </p>
                         <p class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-base">public</span>
@@ -668,7 +841,8 @@
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-surface-variant/70 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-label-sm text-text-dim">
+            <div
+                class="pt-8 border-t border-surface-variant/70 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-label-sm text-text-dim">
                 <p>© 2026 Rendercept. All rights reserved.</p>
                 <p class="text-text-dim/80">Synthetic Velocity • Developer-First Web Architecture</p>
             </div>
@@ -705,4 +879,5 @@
         });
     </script>
 </body>
+
 </html>

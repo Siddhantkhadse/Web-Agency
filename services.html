@@ -103,24 +103,13 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .glass-panel {
-                background: rgba(15, 23, 42, 0.65);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-                border-left: 1px solid rgba(255, 255, 255, 0.08);
-                border-right: 1px solid rgba(255, 255, 255, 0.03);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                @apply bg-glass-bg backdrop-blur-md border-t border-l border-[rgba(255,255,255,0.05)];
             }
             .glow-active {
-                box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
-            }
-            .glow-hover {
-                transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             }
             .glow-hover:hover {
-                box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
-                border-color: rgba(76, 215, 246, 0.4);
-                transform: translateY(-2px);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             }
             .cyan-line-top {
                 position: relative;
@@ -132,7 +121,7 @@
                 left: 0;
                 right: 0;
                 height: 2px;
-                background: #4cd7f6;
+                @apply bg-primary;
             }
             .ambient-flare {
                 position: absolute;
@@ -155,6 +144,14 @@
                 background-color: #4cd7f6;
                 box-shadow: 0 0 8px #4cd7f6;
                 border-radius: 2px;
+            }
+        }
+        
+        @layer base {
+            html, body {
+                max-width: 100vw;
+                overflow-x: hidden;
+                width: 100%;
             }
         }
     </style>
