@@ -327,10 +327,9 @@
                                     Project Type <span class="text-primary">*</span>
                                 </label>
                                 <select id="project_type" class="w-full bg-surface-container border border-surface-variant rounded px-4 py-3 text-on-surface font-body-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                                    <option value="Frontend Development">Frontend Development</option>
-                                    <option value="Backend Architecture">Backend Architecture</option>
-                                    <option value="Full-Stack Web Application" selected>Full-Stack Web Application</option>
-                                    <option value="Speed / Core Web Vitals Audit">Speed / Core Web Vitals Audit</option>
+                                    <option value="Static Website (Marketing, Speed, SEO)" selected>Static Website (Marketing, Speed, SEO)</option>
+                                    <option value="Dynamic Web Application (Databases, User Logins, APIs)">Dynamic Web Application (Databases, User Logins, APIs)</option>
+                                    <option value="General Technical Consultation">General Technical Consultation</option>
                                 </select>
                             </div>
 
@@ -464,24 +463,20 @@
             });
         });
 
-        // URL Parameters prefill support (e.g. ?type=frontend or ?type=backend)
+        // URL Parameters prefill support (e.g. ?type=static or ?type=dynamic)
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const typeParam = urlParams.get('type');
-            const serviceParam = urlParams.get('service');
+            const typeParam = (urlParams.get('type') || '').toLowerCase();
+            const serviceParam = (urlParams.get('service') || '').toLowerCase();
             const projectTypeSelect = document.getElementById('project_type');
 
             if (projectTypeSelect) {
-                if (typeParam === 'frontend') {
-                    projectTypeSelect.value = 'Frontend Development';
-                } else if (typeParam === 'backend') {
-                    projectTypeSelect.value = 'Backend Architecture';
-                } else if (typeParam === 'fullstack') {
-                    projectTypeSelect.value = 'Full-Stack Web Application';
-                } else if (typeParam === 'audit' || serviceParam === 'speed-audit') {
-                    projectTypeSelect.value = 'Speed / Core Web Vitals Audit';
-                } else if (serviceParam === 'clinic' || serviceParam === 'modernization') {
-                    projectTypeSelect.value = 'Frontend Development';
+                if (typeParam === 'static' || serviceParam === 'clinic' || serviceParam === 'modernization' || typeParam === 'frontend') {
+                    projectTypeSelect.value = 'Static Website (Marketing, Speed, SEO)';
+                } else if (typeParam === 'dynamic' || typeParam === 'backend' || typeParam === 'fullstack') {
+                    projectTypeSelect.value = 'Dynamic Web Application (Databases, User Logins, APIs)';
+                } else if (typeParam === 'consultation' || typeParam === 'audit' || serviceParam === 'speed-audit') {
+                    projectTypeSelect.value = 'General Technical Consultation';
                 }
             }
         });
